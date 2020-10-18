@@ -4,7 +4,7 @@ import { useStateValue } from "./StateProvider";
 import Rating from "@material-ui/lab/Rating";
 
 function Product({ id, title, image, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   const addToBasket = () => {
     // dispatch the item into the data layer
