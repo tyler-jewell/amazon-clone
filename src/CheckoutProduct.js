@@ -1,9 +1,10 @@
 import React from "react";
 import "./CheckoutProduct.css";
 import { useStateValue } from "./StateProvider";
+import Rating from "@material-ui/lab/Rating";
 
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
-  const [dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
     // remove the item from the basket
@@ -24,11 +25,7 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
           <strong>{price}</strong>
         </p>
         <div className="checkoutProduct__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p>
-            ))}
+          <Rating value={5}></Rating>
         </div>
         {!hideButton && (
           <button onClick={removeFromBasket}>Remove from Basket</button>
